@@ -1,7 +1,8 @@
 const express = require('express');
 const connectDB = require('./config/db');
-const chats  = require('./data/data');
 const userRoutes = require('./routes/userRoutes')
+const chatRoutes = require('./routes/chatRoutes')
+
 require("colors");
 const app = express();
 
@@ -18,7 +19,7 @@ app.get("/", (req, res)=> {
 
 
 app.use("/api/user", userRoutes)
-
+app.use("/api/chat", chatRoutes)
 
 const PORT = process.env.PORT || 5000;
 
