@@ -15,10 +15,10 @@ connectDB();
 
 require("dotenv").config()
 
-app.get("/", (req, res)=> {
+/*app.get("/", (req, res)=> {
     
     res.send("SERVER RUNNING SUCCESSFULLY")
-})
+})*/
 
 
 app.use("/api/user", userRoutes)
