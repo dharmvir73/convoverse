@@ -7,6 +7,8 @@ const messageRoutes = require('./routes/messageRoutes')
 require("colors");
 const app = express();
 
+app.use(express.static("dist"))
+
 app.use(express.json())
 
 connectDB();

@@ -102,7 +102,7 @@ const Signup = () => {
         },
       };
       const { data } = await axios.post(
-        "api/user",
+        "/api/user",
         { name, email, password, pic },
         config
       );
