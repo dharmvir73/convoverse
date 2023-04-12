@@ -10,6 +10,7 @@ import {
   Button,
   Image,
   Text,
+  Avatar,
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/hooks";
 import { ViewIcon } from "@chakra-ui/icons";
@@ -21,20 +22,27 @@ const ProfileModal = ({ user, children }) => {
       {children ? (
         <span onClick={onOpen}>{children}</span>
       ) : (
-        <IconButton
-          display={{ base: "flex" }}
-          icon={<ViewIcon />}
+        <Avatar
+          size={{ base: "sm", md: "sm" }}
+          cursor={"pointer"}
+          name={user.name}
+          src={user.pic}
           onClick={onOpen}
         />
       )}
-      <Modal isOpen={isOpen} onClose={onClose} motionPreset="scale">
+      <Modal
+        isOpen={isOpen}
+        onClose={onClose}
+        motionPreset="scale"
+        size={{ base: "sm", md: "md" }}
+      >
         <ModalOverlay />
         <ModalContent>
           <ModalHeader
             display={"flex"}
             justifyContent={"center"}
             fontSize={40}
-            fontFamily="work sans"
+            fontFamily="heading"
           >
             {user.name}
           </ModalHeader>
