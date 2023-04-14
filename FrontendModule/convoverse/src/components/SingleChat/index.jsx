@@ -17,6 +17,7 @@ import axios from "axios";
 import ScrollableChat from "../ScrollableChat";
 import "./style.css";
 import io from "socket.io-client";
+import { BASE_URL } from "../../URL";
 
 const ENDPOINT = "https://convoverse.onrender.com";
 var socket, selectedChatCompare;
@@ -46,7 +47,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       };
       setLoading(true);
       const { data } = await axios.get(
-        `/api/message/${selectedChat._id}`,
+        `${BASE_URL}/api/message/${selectedChat._id}`,
         config
       );
       setMessages(data);
@@ -96,7 +97,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         };
         Ref.current.value = "";
         const { data } = await axios.post(
-          "/api/message",
+          `${BASE_URL}/api/message`,
           { content: newMessage, chatId: selectedChat._id },
           config
         );
