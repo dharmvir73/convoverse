@@ -4,8 +4,14 @@ const userRoutes = require('./routes/userRoutes')
 const chatRoutes = require('./routes/chatRoutes')
 const messageRoutes = require('./routes/messageRoutes')
 
-require("colors");
 const app = express();
+require("colors");
+require("dotenv").config()
+
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', process.env.BASE_URL);
+    next();
+})
 
 app.use(express.static('dist'))
 
@@ -13,7 +19,7 @@ app.use(express.json())
 
 connectDB();
 
-require("dotenv").config()
+
 
 /*app.get("/", (req, res)=> {
     
