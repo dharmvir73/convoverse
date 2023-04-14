@@ -40,7 +40,7 @@ const server = app.listen(PORT, console.log(`server is running on port ${PORT}`.
 const io = require('socket.io')(server,{
     pingTimeout: 60000,
     cors:{
-        origin: "https://convoverse.onrender.com"
+        origin: "https://capable-shortbread-91e1ec.netlify.app"
         }
 });
 
